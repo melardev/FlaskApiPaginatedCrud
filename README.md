@@ -17,9 +17,7 @@
       - [The next come are](#the-next-come-are-2)
     + [Client side implementations](#client-side-implementations-2)
       - [The next come are](#the-next-come-are-3)
-- [Follow me](#follow-me)
-  * [Project setup](#project-setup)
-    + [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
+- [Social media links](#social-media-links)
     
 # Introduction
 This is a project mean to be used for learning basic CRUD operations and Pagination using

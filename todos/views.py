@@ -63,7 +63,11 @@ def update_comment(id):
     if todo is None:
         return get_error_response(messages='not found', status_code=404)
     todo.title = request.json.get('title')
-    todo.description = request.json.get('description')
+    description = request.json.get('description', None)
+
+    if description is not None:
+        todo.description = description
+
     todo.completed = request.json.get('completed')
     db.session.commit()
     return get_success_response(data=TodoDetailsSerializer(todo).data, messages='Todo updated successfully')
