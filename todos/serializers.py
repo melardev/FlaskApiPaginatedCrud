@@ -24,6 +24,8 @@ class TodoDetailsSerializer():
                 self.data['full_messages'] = messages
             elif type(messages) == str:
                 self.data['full_messages'] = [messages]
+        else:
+            self.data['full_messages'] = []
 
         self.data.update(get_dto(todo, include_description=True))
 

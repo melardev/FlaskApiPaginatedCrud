@@ -14,9 +14,10 @@ class PageSerializer(object):
         self.data['offset'] = (pagination_obj.page - 1) * pagination_obj.per_page
         self.data['requested_page_size'] = pagination_obj.per_page
         self.data['current_page_number'] = pagination_obj.page
+        self.data['current_items_count'] = len(pagination_obj.items)
 
         self.data['prev_page_number'] = pagination_obj.prev_num or 1
-        self.data['total_pages_count'] = pagination_obj.pages
+        self.data['number_of_pages'] = pagination_obj.pages
 
         self.data['has_next_page'] = pagination_obj.has_next
         self.data['has_prev_page'] = pagination_obj.has_prev

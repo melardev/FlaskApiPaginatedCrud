@@ -1,4 +1,5 @@
 from flask import request, jsonify
+from flask_cors import cross_origin
 from sqlalchemy import desc
 from sqlalchemy.orm import load_only
 
@@ -10,6 +11,7 @@ from todos.serializers import TodoListSerializer, TodoDetailsSerializer
 
 
 @blueprint.route('/todos', methods=['GET'])
+# @cross_origin() Not needed , we enabled cors app wide
 def list_todos():
     return get_todos_page()
 
@@ -25,8 +27,8 @@ def completed_todos():
 
 
 def get_todos_page(completed=None):
-    page_size = request.args.get('page_size', 5)
-    page = request.args.get('page', 1)
+    page_size = int(request.args.get('page_size', 5))
+    page = int(request.args.get('page', 1))
     todos = Todo.query.order_by(desc(Todo.created_at)).options(load_only('id', 'title', 'created_at', 'updated_at'))
     if completed:
         todos = todos.filter_by(completed=True)

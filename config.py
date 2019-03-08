@@ -14,7 +14,7 @@ class DevConfig(object):
 
     # CORS
     CORS_ORIGIN_WHITELIST = [
-        'http://localhost:4000'
+        '*'
     ]
 
 
